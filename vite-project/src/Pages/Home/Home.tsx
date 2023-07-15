@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getPeliculas } from "../../Common/Services/apiCalls";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "./Home.css";
 
 export const Home = () => {
   interface PeliData {
@@ -29,12 +30,12 @@ export const Home = () => {
   }, []);
   console.log(Movies);
   return (
-    <div>
+    <div className="carta">
       {Movies.map((movie) => (
         <Card key={movie.id} style={{ width: "18rem" }}>
           <Card.Img
             variant="top"
-            src={`https://image.tmbd.org/t/p/original?${movie.id}`}
+            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
           />
           <Card.Body>
             <Card.Title>{movie.title}</Card.Title>
