@@ -26,22 +26,22 @@ export const CardMovie = (movie: IMovieProps) => {
 
   return (
     <div className="container">
-      <Card key={movie.id} style={{ width: "18rem" }} className="card">
-        <div className="card-img">
+      <Card key={movie.id} style={{ width: "18rem" }} className="carta">
+        <div className="carta-img">
           <Card.Img
-            className="card-img-src"
+            className="carta-img-src"
             src={`https://image.tmdb.org/t/p/w500/${movie.image}`}
           />
         </div>
-        <Card.Body className="card-content">
-          <Card.Title className="card-title">
+        <Card.Body className="carta-content">
+          <Card.Title className="carta-title">
             <h3>{movie.title}</h3>
           </Card.Title>
-          
+
           <Button
             id="BotonCarta"
             variant="primary"
-            className="card-link"
+            className="carta-link"
             onClick={() => seeDetail()}
           >
             Más Detalles
