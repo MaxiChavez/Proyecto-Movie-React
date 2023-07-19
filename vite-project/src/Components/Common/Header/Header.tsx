@@ -9,7 +9,7 @@ import { getPeliculas } from "../Services/apiCalls";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addFindings, deleteFindings } from "../Services/Slices/searchSlice";
-import { redirect, useLocation, useNavigate } from 'react-router-dom';
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const location = useLocation();
@@ -17,65 +17,63 @@ export const Header = () => {
 
   const dispatch = useDispatch();
 
-  const redirectPage = (page : string) =>{
+  const redirectPage = (page: string) => {
     switch (page) {
       case "Home":
         dispatch(deleteFindings({ findings: [] }));
-        navigate('/');
+        navigate("/");
         break;
       case "Top":
         dispatch(deleteFindings({ findings: [] }));
-        navigate('/top');
+        navigate("/top");
         break;
       default:
         break;
     }
-    
-  }
-  
-  const search = async (busqueda : string) => {
+  };
+
+  const search = async (busqueda: string) => {
     try {
-      if(busqueda == ""){
+      if (busqueda == "") {
         const peliculas = await getPeliculas();
         dispatch(addFindings({ findings: peliculas }));
-        console.log("Hago dispatch y agrego []")
-      }
-      else{
+        console.log("Hago dispatch y agrego []");
+      } else {
         const peliculas = await searchMoviesByFilter(busqueda);
         dispatch(addFindings({ findings: peliculas }));
-        console.log("Hago dispatch y agrego []")
+        console.log("Hago dispatch y agrego []");
       }
 
       // Obtén la ruta actual desde la ubicación
       const currentPath = location.pathname;
-      if (currentPath !== '/') {
+      if (currentPath !== "/") {
         // Redirige al usuario a la página de inicio
-        navigate('/');
+        navigate("/");
       }
-
     } catch (error) {
       console.log("Error al traer las pelis:", error);
     }
   };
 
-
-
-
-
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [updated, setUpdated] = useState(message);
-    const handleChange = (event) => {
-      setMessage(event.target.value);
-    };
-    const handleClick = () => {
-      setUpdated(message);
-      search(message)
-    };
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+  };
+  const handleClick = () => {
+    setUpdated(message);
+    search(message);
+  };
 
   return (
     <Navbar expand="lg" className="bg-body-secondary" data-bs-theme="dark">
       <Container fluid>
-        <Navbar.Brand className="logo-brand" onClick={() =>redirectPage("Home")}>Pelis-Max</Navbar.Brand>
+        <Navbar.Brand
+          className="logo-brand"
+          onClick={() => redirectPage("Home")}
+        >
+          Pelis-Max
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -83,10 +81,9 @@ export const Header = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link onClick={()=>redirectPage("Top")}>Top 20</Nav.Link>
+            <Nav.Link onClick={() => redirectPage("Top")}>Top 20</Nav.Link>
             <Nav.Link href="../">Peliculas</Nav.Link>
           </Nav>
-
 
           <Form className="d-flex">
             <input
@@ -97,7 +94,9 @@ export const Header = () => {
               value={message}
             />
 
-            <Button variant="outline-dark" onClick={handleClick}>Search</Button>
+            <Button variant="outline-dark" onClick={handleClick}>
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
