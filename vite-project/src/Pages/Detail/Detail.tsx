@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { movieData } from "../../Components/Common/Services/Slices/detailSlice";
 import { getPeliculaById } from '../../Components/Common/Services/apiCalls';
-
-
+import "./Detail.css"
 
 export const Detail = () => {
 
@@ -65,26 +64,42 @@ export const Detail = () => {
                     //pasarle los datos mediante props y que se encargue de renderizar
                     //un perfil del character escogido....
                     <>
-                    <h1>{movie?.title}</h1><br></br>
-                    <h1>{movie?.release_date}</h1><br></br>
-                    <h1>{movie?.overview}</h1><br></br>
+                    <section id="todo">
+      
 
-                    {movie?.genres.map((genre) => (
-                        <h1>{genre.name}</h1>
-                    ))}
-                    {movie?.production_companies.map((production_comp) => (
-                        <div>
-                            <h1>{production_comp.name}</h1>
-                            <h1>{production_comp.origin_country}</h1>
-                        </div>
-                    ))}
-                    <h1>{movie?.budget}</h1><br></br>
-                    
-                    <h1>{movie?.poster_path}</h1><br></br>
-                    
-                    </>
-                )
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4">
+            <img
+               src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
+              alt="Imagen de la película"
+              className="img-fluid img-detail"
+            />
+          </div>
 
+          <div className="col-lg-8">
+            <h2>{movie?.title}</h2>
+            <h4>{movie?.release_date}</h4>
+            <h4>Generos:
+            {movie?.genres.map((genre) => (
+                        <>{genre.name+ " "}</>
+                    ))}
+            </h4>
+            <p className='overview-detail'>
+              {movie?.overview}
+            </p>
+            <p>Presupuesto: ${movie?.budget}</p>
+            <h4>Productoras:
+            {movie?.production_companies.map((production_comp) => (
+                        <h5>{production_comp.name +" "} 
+                        {production_comp.origin_country}</h5>
+                    ))}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    </>)
                 : (<>cargando...</>)
             }
         </>

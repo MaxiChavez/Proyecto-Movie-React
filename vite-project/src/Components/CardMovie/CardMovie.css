@@ -13,20 +13,27 @@
   margin: 0;
   font-family: "Roboto", sans-serif;
   font-size: 1em;
-  color: var(--grey-light);
+  ;
   display: flex;
   justify-content: center;
 }
 
 .carta {
-  width: 100%;
+  height: 650px;
+  width: 330px;
   background-color: var(--blue-dark);
 
   border-radius: 0.75em;
   box-shadow: 3px 3px 5px 1px rgb(0 0 0 / 20%);
 }
 
+.card {
+  background-color: var(--blue-dark) !important;
+  color: var(--grey-light) !important;
+}
+
 .carta-img {
+  height: 70%;
   max-width: 100%;
   width: 100%;
   border-top-left-radius: 0.75em;
@@ -54,14 +61,16 @@
 }
 
 .carta-content {
+  height: 30%;
   padding: 1em;
 }
 
 .carta-title {
+  height: 70%;
+  color: var(--grey-light);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-top: 0.5em;
   margin-bottom: 0.2em;
 }
 
@@ -108,9 +117,17 @@
   transition: opacity 0.5s;
 }
 
+
+
 .carta-link:hover {
   opacity: 0.9;
 }
-#BotonCarta {
+
+.botonCarta {
+  height: 30%;
+}
+
+.btnCard {
+  margin: auto;
   border-radius: 12px;
 }

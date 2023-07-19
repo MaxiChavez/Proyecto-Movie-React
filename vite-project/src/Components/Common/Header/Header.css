@@ -1,2 +1,5 @@
 /* .custom-search-input {
 } */
+.logo-brand:hover {
+    cursor: pointer;
+}

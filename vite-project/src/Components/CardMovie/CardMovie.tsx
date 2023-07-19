@@ -1,5 +1,3 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addMovie } from "../Common/Services/Slices/detailSlice";
@@ -26,28 +24,28 @@ export const CardMovie = (movie: IMovieProps) => {
 
   return (
     <div className="container">
-      <Card key={movie.id} style={{ width: "18rem" }} className="carta">
+      <div key={movie.id}  className="carta">
         <div className="carta-img">
-          <Card.Img
+          <img
             className="carta-img-src"
             src={`https://image.tmdb.org/t/p/w500/${movie.image}`}
           />
         </div>
-        <Card.Body className="carta-content">
-          <Card.Title className="carta-title">
+        <div className="carta-content">
+          <div className="carta-title">
             <h3>{movie.title}</h3>
-          </Card.Title>
-
-          <Button
-            id="BotonCarta"
-            variant="primary"
-            className="carta-link"
+          </div>
+          <div className="botonCarta">
+          <button
+            
+            className="carta-link btnCard"
             onClick={() => seeDetail()}
           >
             Más Detalles
-          </Button>
-        </Card.Body>
-      </Card>
+          </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
