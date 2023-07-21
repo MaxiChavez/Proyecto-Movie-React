@@ -40,7 +40,9 @@ export const Home = () => {
 
   return (
     <div className="card-section">
-      {searchRdxData && searchRdxData.findings && searchRdxData.findings.length > 0 ? (
+      {searchRdxData &&
+      searchRdxData.findings &&
+      searchRdxData.findings.length > 0 ? (
         <>
           {searchRdxData.findings.map((movie: PeliData) => {
             return (

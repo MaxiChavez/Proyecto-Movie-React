@@ -86,7 +86,7 @@ export const Header = () => {
           className="logo-brand"
           onClick={() => redirectPage("Home")}
         >
-          Pelis-Max
+          MovieFinder
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

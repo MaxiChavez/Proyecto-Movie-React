@@ -3,9 +3,9 @@ import { Header } from "./Components/Common/Header/Header";
 import { Detail } from "./Pages/Detail/Detail";
 import { Home } from "./Pages/Home/Home";
 import { Top } from "./Pages/Top/Top";
+import { Footer } from "./Components/Common/Footer/Footer";
 
 import "./App.css";
-
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/detail" element={<Detail />} />
           <Route path="/top" element={<Top />} />
-
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
