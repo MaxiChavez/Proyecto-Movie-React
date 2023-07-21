@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { InputGroupProps } from "react-bootstrap/esm/InputGroup";
 import { searchMoviesByFilter } from "../Services/apiCalls";
 import "./Header.css";
 import { getPeliculas } from "../Services/apiCalls";
@@ -10,21 +11,24 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { addFindings, deleteFindings } from "../Services/Slices/searchSlice";
 import { redirect, useLocation, useNavigate } from "react-router-dom";
+import "./Header.css";
 
 export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+  const [message, setMessage] = useState("");
+  const [updated, setUpdated] = useState(message);
 
   const redirectPage = (page: string) => {
     switch (page) {
       case "Home":
-        dispatch(deleteFindings({ findings: [] }));
+        dispatch(addFindings({ findings: [] }));
         navigate("/");
         break;
       case "Top":
-        dispatch(deleteFindings({ findings: [] }));
+        dispatch(addFindings({ findings: [] }));
         navigate("/top");
         break;
       default:
@@ -55,14 +59,24 @@ export const Header = () => {
     }
   };
 
-  const [message, setMessage] = useState("");
-  const [updated, setUpdated] = useState(message);
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   };
-  const handleClick = () => {
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     setUpdated(message);
     search(message);
+  };
+
+  const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
+  const keypressHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      search(message);
+    }
   };
 
   return (
@@ -84,20 +98,25 @@ export const Header = () => {
             <Nav.Link onClick={() => redirectPage("Top")}>Top 20</Nav.Link>
             <Nav.Link href="../">Peliculas</Nav.Link>
           </Nav>
-
-          <Form className="d-flex">
+          <div>
             <input
+              className="input-header"
               type="text"
               id="message"
               name="message"
               onChange={handleChange}
+              onKeyDown={keypressHandler}
               value={message}
             />
 
-            <Button variant="outline-dark" onClick={handleClick}>
-              Search
+            <Button
+              variant="outline-dark"
+              className="btn-header"
+              onClick={handleClick}
+            >
+              Buscar
             </Button>
-          </Form>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

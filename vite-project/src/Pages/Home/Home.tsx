@@ -22,12 +22,13 @@ export const Home = () => {
   useEffect(() => {
     const traerData = async () => {
       try {
+        const peliculas = await getPeliculas();
+
         if (searchRdxData.findings.length == 0 || searchRdxData == undefined) {
-          const peliculas = await getPeliculas();
           setMovies(peliculas);
           console.log("Movie data redux esta undefined");
         } else {
-          setMovies(searchRdxData);
+          setMovies(peliculas);
           console.log("Movie data redux no tiene nada");
         }
       } catch (error) {
@@ -39,19 +40,20 @@ export const Home = () => {
 
   return (
     <div className="card-section">
-      {searchRdxData &&
-      searchRdxData.findings &&
-      searchRdxData.findings.length > 0 ? (
+      {searchRdxData && searchRdxData.findings && searchRdxData.findings.length > 0 ? (
         <>
           {searchRdxData.findings.map((movie: PeliData) => {
             return (
-              <CardMovie
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                overview={movie.overview}
-                image={movie.poster_path}
-              ></CardMovie>
+              // Verifica si movie.poster_path no es nulo antes de renderizar el componente
+              movie.poster_path && (
+                <CardMovie
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title}
+                  overview={movie.overview}
+                  image={movie.poster_path}
+                />
+              )
             );
           })}
         </>
@@ -59,13 +61,16 @@ export const Home = () => {
         <>
           {movies?.map((movie: PeliData) => {
             return (
-              <CardMovie
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                overview={movie.overview}
-                image={movie.poster_path}
-              ></CardMovie>
+              // Verifica si movie.poster_path no es nulo antes de renderizar el componente
+              movie.poster_path && (
+                <CardMovie
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title}
+                  overview={movie.overview}
+                  image={movie.poster_path}
+                />
+              )
             );
           })}
         </>

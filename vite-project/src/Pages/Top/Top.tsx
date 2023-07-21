@@ -18,7 +18,6 @@ export const Top = () => {
       try {
         const data = await traerVeintes();
         setTopMovies(data);
-        console.log(data);
       } catch (error) {
         console.log("error", error);
       }
@@ -28,6 +27,7 @@ export const Top = () => {
 
   return (
     <>
+    <div className="top-twenty-section">
       {topMovies.map((movie: PeliData) => (
         <CardMovie
           key={movie.id}
@@ -37,6 +37,7 @@ export const Top = () => {
           image={movie.poster_path}
         />
       ))}
+      </div>
     </>
   );
 };

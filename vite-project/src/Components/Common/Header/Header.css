@@ -3,3 +3,29 @@
 .logo-brand:hover {
     cursor: pointer;
 }
+
+.input-header {
+    padding: 6px 12px;
+    height: 42px;
+    border: 1px solid #ffffff;
+    margin-right: 3px;
+    color: #ff9500;
+}
+
+.btn-header {
+    margin-left: 14px !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    border: #ffffff00 !important;
+    color: white !important;
+}
+
+.btn-header:hover {
+    font-style: italic !important;
+    background-color: rgba(255, 15, 15, 0) !important;
+    font-weight: bolder !important;
+    --bs-btn-active-color: #ffae00;
+    --bs-btn-active-bg: #21252900;
+    --bs-btn-active-border-color: #21252900;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
+}

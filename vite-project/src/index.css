@@ -4,16 +4,19 @@
   font-family: 'Noto Sans', sans-serif;
 }
 
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
 .Carta {
   text-align: center;
   justify-content: center;
   border-style: solid;
 }
 
-body {
-  background: rgb(86, 112, 78);
-  background: linear-gradient(333deg, rgba(86, 112, 78, 1) 2%, rgba(82, 82, 82, 1) 100%);
-}
+
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
