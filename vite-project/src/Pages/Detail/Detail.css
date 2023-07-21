@@ -7,7 +7,7 @@
   color: white;
   display: flex;
   /* height: calc(100vh - 56px);*/
-  max-height: 100vh;
+
   align-items: center;
 
   justify-content: center;
@@ -55,17 +55,16 @@ p {
   padding-right: 50px !important;
 }
 
-@media only screen and (max-width: 992px) {
-  .detail-title {
-    margin-top: 14px;
-  }
-
-  #detail-section {
-  }
-}
-
 @media only screen and (min-width: 992px) {
   #detail-section {
     height: calc(100vh - 56px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-detail {
+    margin-top: 7em !important;
+    max-height: max-content;
+    margin-bottom: 8em;
   }
 }
