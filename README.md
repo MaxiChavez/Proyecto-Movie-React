@@ -21,11 +21,12 @@
 
 ## Objetivo 🎯
 
-Es el primer proyecto de React y requeria traer datos de una Api, manejar Redux y elementos con carga dinamica.
+Es el primer proyecto de React y requeria traer datos de una Api (The Movie Database), utilizar Redux y manejar los elementos con carga dinamica.
 
 ## Sobre el proyecto 🔎
 
-Decidi darle bastante enfasis a la parte visual.
+Decidi darle bastante enfasis a la parte visual, se implemento un buscador.
+Se utilizo typescript para continuar adquiriendo expericia con dicha tecnologia y agregarle un poco mas de complejidad al proyecto.
 
 <!-- ## Deploy 🚀
 
@@ -110,6 +111,11 @@ Para conseguir mi objetivo he recopilado información de:
 - Ejemplos del Bootcamp
 - Documentacion oficial.
 - ...
+
+## Herramientas para el desarrollo:
+
+- https://css.glass/ => Para el efecto en el div que contiene el detalle.
+- https://www.svgbackgrounds.com/ => Para el fondo de pantalla de ambas vistas.
 
 ## Desarrollo:
 
