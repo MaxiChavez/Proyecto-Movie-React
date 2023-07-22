@@ -20,7 +20,7 @@
 }
 
 /* Estilos para tabletas */
-@media only screen and (min-width: 968px) and (max-width: 1423px) {
+@media only screen and (min-width: 968px) and (max-width: 1200px) {
   /* Agrega tus estilos para tabletas aquí */
   .top-twenty-section {
     grid-template-columns: 1fr 1fr;
