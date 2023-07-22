@@ -54,17 +54,17 @@ Decidi darle bastante enfasis a la parte visual.
 ## Vistas
 
 Landing
-<img src="./images/landing.png">  
+<img src="./vite-project/src/assets/Busqueda-Computadora.png">  
 Register
-<img src="./images/register.png">
+<img src="./vite-project/src/assets/Home.png">
 Login
-<img src="./images/login.png">
+<img src="./vite-project/src/assets/Responsive-Celulares.png">
 Profile
-<img src="./images/profile.png">
+<img src="./vite-project/src/assets/Responsive-Tables-Top20.png">
 Routines
-<img src="./images/routines.png">
+<img src="./vite-project/src/assets/Vista%20detalle.png">
 Exercices
-<img src="./images/exercises.png">
+<img src="./vite-project/src/assets/Responsive.png">
 
 ## Futuras funcionalidades
 
