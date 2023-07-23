@@ -54,9 +54,9 @@ p {
   padding-right: 50px !important;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 940px) {
   #detail-section {
-    height: calc(100vh - 56px);
+    height: calc(100vh - 57px) !important;
   }
 }
 
@@ -64,6 +64,7 @@ p {
 @media only screen and (min-width: 768px) and (max-width: 1000px) {
   .card-detail {
     max-height: 120vh;
+    height: calc(100vh - 55px) !important;
   }
 }
 

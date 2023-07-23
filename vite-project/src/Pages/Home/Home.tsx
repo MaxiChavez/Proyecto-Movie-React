@@ -14,7 +14,7 @@ interface PeliData {
 }
 
 export const Home = () => {
-  //Traigo la información de la busqueda
+  //Traigo la información de la búsqueda desde el estado de Redux
   const searchRdxData = useSelector(searchData);
 
   const [movies, setMovies] = useState<PeliData[]>([]);
@@ -22,19 +22,23 @@ export const Home = () => {
   useEffect(() => {
     const traerData = async () => {
       try {
-        const peliculas = await getPeliculas();
+        let peliculas: PeliData[] = [];
 
-        if (searchRdxData.findings.length == 0 || searchRdxData == undefined) {
-          setMovies(peliculas);
-          console.log("Movie data redux esta undefined");
+        if (
+          searchRdxData.findings.length === 0 ||
+          searchRdxData === undefined
+        ) {
+          peliculas = await getPeliculas();
         } else {
-          setMovies(peliculas);
-          console.log("Movie data redux no tiene nada");
+          peliculas = searchRdxData.findings;
         }
+
+        setMovies(peliculas);
       } catch (error) {
-        console.log("Error al traer las pelis:", error);
+        console.log("Error al traer las películas:", error);
       }
     };
+
     traerData();
   }, [searchRdxData]);
 
