@@ -21,12 +21,17 @@
 
 ## Objetivo 🎯
 
-Es el primer proyecto de React y requeria traer datos de una Api (The Movie Database), utilizar Redux y manejar los elementos con carga dinamica.
+El objetivo de este proyecto de Programación web es crear una página para buscar información de películas utilizando una API externa.
 
 ## Sobre el proyecto 🔎
 
-Decidi darle bastante enfasis a la parte visual, se implemento un buscador.
-Se utilizo typescript para continuar adquiriendo expericia con dicha tecnologia y agregarle un poco mas de complejidad al proyecto.
+En este proyecto, se ha utilizado Vite como herramienta de desarrollo, React como biblioteca para construir la interfaz y TypeScript como lenguaje de programación. Además, se ha implementado el patrón de arquitectura de datos Redux para una gestión eficiente del estado de la aplicación.
+
+Para el renderizado dinámico de los datos, se ha utilizado programación asíncrona mediante la librería Axios para realizar solicitudes a la API externa "The Movie Database". Esta API ofrece una amplia librería de películas y sus respectivos detalles.
+
+Se ha dado especial énfasis a la parte visual del proyecto, y se ha implementado un buscador que permite a los usuarios encontrar información sobre películas de forma rápida y sencilla.
+
+El proyecto busca brindar una experiencia interactiva y atractiva para los usuarios que deseen buscar información sobre películas.
 
 <!-- ## Deploy 🚀
 
