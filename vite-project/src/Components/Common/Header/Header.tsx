@@ -18,7 +18,6 @@ export const Header = () => {
   //varuable de estado de el buscador
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
-  const [updated, setUpdated] = useState(message);
 
   const redirectPage = (page: string) => {
     switch (page) {
@@ -64,7 +63,7 @@ export const Header = () => {
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    setUpdated(message);
+
     search(message);
   };
 
