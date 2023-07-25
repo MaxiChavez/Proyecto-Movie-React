@@ -17,12 +17,6 @@ export const getPeliculaById = async (id: string) => {
   return data;
 };
 
-export const getPeliculasBySearch = async (search: string) => {
-  let url = `${urlPeliculas}&api_key=${apiKey}`;
-  let { data } = await axios.get(url);
-  return data.results;
-};
-
 export const getImages = async (id: string) => {
   let { data } = await axios.get(`${image_path}/${id}`);
   return data;

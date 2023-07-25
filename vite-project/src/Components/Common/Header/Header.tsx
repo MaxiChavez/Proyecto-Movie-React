@@ -1,22 +1,21 @@
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { InputGroupProps } from "react-bootstrap/esm/InputGroup";
 import { searchMoviesByFilter } from "../Services/apiCalls";
 import "./Header.css";
 import { getPeliculas } from "../Services/apiCalls";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { addFindings, deleteFindings } from "../Services/Slices/searchSlice";
-import { redirect, useLocation, useNavigate } from "react-router-dom";
+import { addFindings } from "../Services/Slices/searchSlice";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  //varuable de estado de el buscador
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [updated, setUpdated] = useState(message);
@@ -48,7 +47,7 @@ export const Header = () => {
         console.log("Hago dispatch y agrego []");
       }
 
-      // Obtén la ruta actual desde la ubicación
+      // Obténgo la ruta actual desde la ubicación
       const currentPath = location.pathname;
       if (currentPath !== "/") {
         // Redirige al usuario a la página de inicio
@@ -58,7 +57,7 @@ export const Header = () => {
       console.log("Error al traer las pelis:", error);
     }
   };
-
+  //handler del buscador
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
   };
@@ -69,9 +68,9 @@ export const Header = () => {
     search(message);
   };
 
-  const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-  };
+  // const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault();
+  // };
 
   const keypressHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
